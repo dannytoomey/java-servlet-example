@@ -8,6 +8,8 @@
     <a href="./QuickServlet">Click here to send GET request</a>
 
     <a href="./templates/new_page">click here for a new page</a>
+
+    <a href="https://github.com/dannytoomey/java-servlet-example">click here to see my code</a>
      
     <br/><br/>
      
