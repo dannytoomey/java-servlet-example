@@ -1,0 +1,38 @@
+this follows this tutorial -
+
+https://www.codejava.net/java-ee/servlet/java-servlet-quick-start-tomcat-xml-config
+
+tomcat9 servlet api jar is located at /usr/share/tomcat9/lib/servlet-api.jar
+
+full compile command --
+
+javac -cp /usr/share/tomcat9/lib/servlet-api.jar -d WebContent/WEB-INF/classes/ src/net/codejava/servlet/QuickServlet.java
+
+use with the parameter --release 8 so that it can be deployed to heroku
+
+package command --
+jar cfv deploy\QuickServletApp.war -C WebContent .
+
+copy war file and paste in tomcat webapp directory with --
+
+sudo cp deploy/QuickServletApp.war /var/lib/tomcat9/webapps/
+
+then restart tomcat with --
+
+sudo service tomcat9 restart
+
+---- full recompile and relaunch workflow ----
+
+javac --release 8 -cp /usr/share/tomcat9/lib/servlet-api.jar -d WebContent/WEB-INF/classes/ src/net/codejava/servlet/QuickServlet.java 
+jar cfv deploy/QuickServletApp.war -C WebContent .  
+sudo cp deploy/QuickServletApp.war /var/lib/tomcat9/webapps/  
+sudo service tomcat9 restart 
+
+
+tomcat9 webapp directory is located /var/lib/tomcat9/webapps/
+paste a war file here and can be acessed at root/WarFileName in browser
+
+deploy to heroku with --
+
+heroku war:deploy /var/lib/tomcat9/webapps/QuickServletApp.war --app java-war-test
+
